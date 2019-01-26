@@ -1,0 +1,148 @@
+<!--
+
+Step 1:
+
+Create the following Basic Layout:
+
+    ------------      ----      ----
+   |            |    |    |    |    |
+   |            |    |    |    |    |
+   |            |     ----      ----
+   |            |
+   |            |     ----      ----
+   |            |    |    |    |    |
+   |            |    |    |    |    |
+    ------------      ----      ----
+
+
+Where:
+
+The four small squares have the following colors: RED GREEN BLUE YELLOW (100px by 100px)
+
+The big square is white (500px by 500px)
+
+All squares have a black 1px border
+
+-->
+<!--
+
+Step 2:
+
+When clicking on one of the small squares, the large square will change its color to the color of the clicked square
+
+-->
+
+<html>
+  <head>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      h1 {
+        color: white;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+
+      .container .big-container {
+        height: 100%;
+      }
+
+      .container .big-container .big {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        background-color: white;
+      }
+      
+      .container .small-container {
+        width: 240px;
+        height: 200px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .container .small-container .small {
+        width: 100px;
+        height: 100px;
+        display: block;
+        color: white;
+        border: 1px solid black;
+      }
+
+      .container .small-container .small.red {
+        background-color: red;
+      }
+
+      .container .small-container .small.green {
+        background-color: green;
+      }
+
+      .container .small-container .small.blue {
+        background-color: blue;
+      }
+
+      .container .small-container .small.yellow {
+        background-color: yellow;
+      }
+
+      /* CSS goes here */
+    </style>
+  </head>
+  <body>
+    <h1>Netflix Interview</h1>
+
+    <div class="container">
+      <div class="big-container">
+        <div class="big" id="bigElement">
+          big
+        </div>
+      </div>
+
+      <div class="small-container" id="parent">
+        <div class="small red" id="red">
+          1
+        </div>
+
+        <div class="small green" id="green">
+          2
+        </div>
+
+        <div class="small blue" id="blue">
+          3
+        </div>
+
+        <div class="small yellow" id="yellow">
+          4
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      // Write JavaScript here.
+      (function() {
+        let bigElement = document.getElementById("bigElement");
+        let parentElement = document.getElementById("parent");
+
+        parentElement.addEventListener('click', function(e) {
+
+          if (e.target.id == "red") {
+            bigElement.style.backgroundColor = "red";
+          } else if (e.target.id == "green") {
+            bigElement.style.backgroundColor = "green";
+          } else if (e.target.id == "blue") {
+            bigElement.style.backgroundColor = "blue";
+          } else {
+            bigElement.style.backgroundColor = "yellow";
+          }
+        }, false);
+      })();
+    </script>
+  </body>
+</html>
